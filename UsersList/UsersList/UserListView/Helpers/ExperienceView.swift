@@ -10,22 +10,27 @@ import SwiftUI
 struct ExperienceView: View {
     
     @State var results: UsersModel?
+    @State var staticData: [StaticData]?
+    @State var title: String
     
     var body: some View {
         VStack(alignment: .leading) {
             
-            Text("Experience")
+            Text(title)
                 .font(.title3)
                 .fontWeight(.semibold)
                 .padding()
             
-            ExperienceTile()
-            
-            Divider()
-                .padding(.horizontal)
-            
-            ExperienceTile()
-                .padding(.bottom)
+            if let staticData = staticData {
+                ForEach(staticData) { results in
+                    
+                    ExperienceTile(staticData: results)
+                    
+                    Divider()
+                        .padding(.horizontal)
+
+                }
+            }
         }
         .frame(maxWidth: .infinity)
         .background(.gray.opacity(0.2))
@@ -36,6 +41,6 @@ struct ExperienceView: View {
 
 struct ExperienceView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperienceView()
+        ExperienceView(title: "")
     }
 }

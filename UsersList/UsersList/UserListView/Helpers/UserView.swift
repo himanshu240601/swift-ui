@@ -31,15 +31,6 @@ struct UserView: View {
                 .font(.caption)
                 .padding(.bottom)
             
-            HStack(alignment: .center) {
-                
-                Image(systemName: "location.circle")
-                    .foregroundColor(.blue)
-                
-                Text("Florida • CA")
-                    .font(.subheadline)
-                
-            }.padding(.bottom)
         }
     }
 }
